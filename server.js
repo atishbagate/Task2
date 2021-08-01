@@ -28,7 +28,7 @@ app.post("/",function (req,res) {
     let newData = new Info({
     fname:req.body.fname,lname:req.body.lname,email:req.body.email,number:req.body.number,password:req.body.password})
     newData.save();
-    res.redirect('/')
+    res.redirect("/")
 })
 // app.listen(3000,function(){
 //     console.log("Server is connected");
