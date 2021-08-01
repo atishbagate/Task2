@@ -7,7 +7,8 @@ const { urlencoded } = require("body-parser");
 app.use(bodyParser.urlencoded({extended:true}));
 
 mongoose.connect("mongodb+srv://atish:0mu8ZbPjoTTQeii5@cluster0.avrwp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",{ useUnifiedTopology: true,useNewUrlParser: true })
-
+.then( ()=>console.log("sucessfull connected.."))
+ .catch((err)=>console.log(err));
 
 // creating a mongoose.Schema
 const infoSchema = {
@@ -29,6 +30,9 @@ app.post("/",function (req,res) {
     newData.save();
     res.redirect('/')
 })
-app.listen(3000,function(){
-    console.log("Server is connected");
+// app.listen(3000,function(){
+//     console.log("Server is connected");
+// })
+app.listen(process.env.PORT || 3000,function () {
+    console.log("server running");
 })
