@@ -6,6 +6,8 @@ const { urlencoded } = require("body-parser");
 
 app.use(bodyParser.urlencoded({extended:true}));
 
+
+// password will be hidden inside .env file 
 mongoose.connect("mongodb+srv://atish:0mu8ZbPjoTTQeii5@cluster0.avrwp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",{ useUnifiedTopology: true,useNewUrlParser: true })
 .then( ()=>console.log("sucessfull connected.."))
  .catch((err)=>console.log(err));
@@ -28,7 +30,7 @@ app.post("/",function (req,res) {
     let newData = new Info({
     fname:req.body.fname,lname:req.body.lname,email:req.body.email,number:req.body.number,password:req.body.password})
     newData.save();
-//     res.redirect("/")
+    res.redirect("/")
 })
 // app.listen(3000,function(){
 //     console.log("Server is connected");
