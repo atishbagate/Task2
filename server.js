@@ -21,7 +21,7 @@ const infoSchema = {
 const Info = mongoose.model("Info",infoSchema)
 
 app.get("/",function(req,res){
-    res.sendFile(__dirname+"/index.html")
+    res.sendFile(__dirname+"/html/index.html")
 })
 
 app.post("/",function (req,res) {
